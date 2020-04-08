@@ -25,9 +25,6 @@ public class Plan {
 	
 	private Integer state;
 	
-	private Integer order;
-	
-	
 	
 	public Integer getId() {
 		return id;
@@ -70,12 +67,6 @@ public class Plan {
 	}
 	public void setState(Integer state) {
 		this.state = state;
-	}
-	public Integer getOrder() {
-		return order;
-	}
-	public void setOrder(Integer order) {
-		this.order = order;
 	}
 	
 
