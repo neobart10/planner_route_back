@@ -6,25 +6,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="PLANS")
 public class Plan {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	
-	/*@ManyToOne
+	@ManyToOne
     @JoinColumn(name = "id_route", referencedColumnName = "id")
-	private Route route;*/
+	private Route route;
 	
 	private Double startLat;
 	
-	private Double startLog;
+	private Double startLng;
 	
 	private Double targetLat;
 	
-	private Double targetLog;
+	private Double targetLng;
 	
 	private Integer stop;
 	
@@ -43,11 +45,11 @@ public class Plan {
 	public void setStartLat(Double startLat) {
 		this.startLat = startLat;
 	}
-	public Double getStartLog() {
-		return startLog;
+	public Double getStartLng() {
+		return startLng;
 	}
-	public void setStartLog(Double startLog) {
-		this.startLog = startLog;
+	public void setStartLng(Double startLng) {
+		this.startLng = startLng;
 	}
 	public Double getTargetLat() {
 		return targetLat;
@@ -55,11 +57,11 @@ public class Plan {
 	public void setTargetLat(Double targetLat) {
 		this.targetLat = targetLat;
 	}
-	public Double getTargetLog() {
-		return targetLog;
+	public Double getTargetLng() {
+		return targetLng;
 	}
-	public void setTargetLog(Double targetLog) {
-		this.targetLog = targetLog;
+	public void setTargetLng(Double targetLng) {
+		this.targetLng = targetLng;
 	}
 	public Integer getStop() {
 		return stop;
@@ -73,12 +75,10 @@ public class Plan {
 	public void setState(Integer state) {
 		this.state = state;
 	}
-/*	public Route getRoute() {
+	public Route getRoute() {
 		return route;
 	}
 	public void setRoute(Route route) {
 		this.route = route;
-	}*/
-	
-
+	}
 }

@@ -40,11 +40,11 @@ public class PlanController {
 		if(optional.isPresent()){
 			Plan planUpdate =  optional.get();
 			planUpdate.setStartLat(plan.getStartLat());
-			planUpdate.setStartLog(plan.getStartLog());
+			planUpdate.setStartLng(plan.getStartLng());
 			planUpdate.setState(plan.getState());
 			planUpdate.setStop(plan.getStop());
 			planUpdate.setTargetLat(plan.getTargetLat());
-			planUpdate.setTargetLog(plan.getTargetLog());
+			planUpdate.setTargetLng(plan.getTargetLng());
 			return this.planRepository.save(planUpdate);
 		}
 		return null;
