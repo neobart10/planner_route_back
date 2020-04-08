@@ -34,11 +34,11 @@ public class RouteController {
 		return this.routeRepository.findById(id).get();
 	}
 	
-	/*@RequestMapping(method=RequestMethod.GET, value="/user/{idUser}")
+	@RequestMapping(method=RequestMethod.GET, value="/user/{idUser}")
 	Iterable<Route> getByUser(@PathVariable("idUser") int idUser){
 		User user = this.userRepository.findById(idUser).get();
 		return this.routeRepository.findByUser(user);
-	}*/
+	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="")
 	Route save(@RequestBody Route route){
