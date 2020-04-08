@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Plan {
@@ -11,7 +13,10 @@ public class Plan {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-
+	
+	/*@ManyToOne
+    @JoinColumn(name = "id_route", referencedColumnName = "id")
+	private Route route;*/
 	
 	private Double startLat;
 	
@@ -68,6 +73,12 @@ public class Plan {
 	public void setState(Integer state) {
 		this.state = state;
 	}
+/*	public Route getRoute() {
+		return route;
+	}
+	public void setRoute(Route route) {
+		this.route = route;
+	}*/
 	
 
 }
