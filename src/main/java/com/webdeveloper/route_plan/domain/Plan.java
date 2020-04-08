@@ -11,8 +11,7 @@ public class Plan {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-	
-	private Route route;
+
 	
 	private Double startLat;
 	
@@ -29,12 +28,7 @@ public class Plan {
 	private Integer order;
 	
 	
-	public Route getRoute() {
-		return route;
-	}
-	public void setRoute(Route route) {
-		this.route = route;
-	}
+	
 	public Integer getId() {
 		return id;
 	}
