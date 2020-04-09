@@ -64,7 +64,7 @@ public class RouteController {
 		return null;
 	}
 	
-	@RequestMapping(method=RequestMethod.DELETE, value="")
+	@RequestMapping(method=RequestMethod.DELETE, value="/{id}")
 	void delete(@PathVariable("id") int id){
 		Optional<Route> optional = this.routeRepository.findById(id);
 		if(optional.isPresent())
