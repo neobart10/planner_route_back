@@ -20,12 +20,12 @@ public class PlanController {
 	private PlanRepository planRepository;
 	
 	@RequestMapping(method=RequestMethod.GET, value="")
-	Iterable<Plan> getAllPlan(){
+	Iterable<Plan> getAll(){
 		return this.planRepository.findAll();
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/{id}")
-	Plan getPlanById(@PathVariable("id") int id){
+	Plan getById(@PathVariable("id") int id){
 		return this.planRepository.findById(id).get();
 	}
 	

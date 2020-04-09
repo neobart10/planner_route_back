@@ -20,12 +20,12 @@ public class UserController {
 	private UserRepository userRepository;
 	
 	@RequestMapping(method=RequestMethod.GET, value="")
-	Iterable<User> getAllUser(){
+	Iterable<User> getAll(){
 		return this.userRepository.findAll();
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/{id}")
-	User getUserById(@PathVariable("id") int id){
+	User getById(@PathVariable("id") int id){
 		return this.userRepository.findById(id).get();
 	}
 	
