@@ -75,9 +75,9 @@ public class Plan {
 	public void setState(Integer state) {
 		this.state = state;
 	}
-	public Route getRoute() {
+	/*public Route getRoute() {
 		return route;
-	}
+	}*/
 	public void setRoute(Route route) {
 		this.route = route;
 	}

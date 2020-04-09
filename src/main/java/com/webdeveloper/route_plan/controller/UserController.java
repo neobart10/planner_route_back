@@ -34,7 +34,7 @@ public class UserController {
 		return this.userRepository.save(user);
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, value="")
+	@RequestMapping(method=RequestMethod.PUT, value="/{id}")
 	User update(@RequestBody User user, @PathVariable("id") int id){
 		Optional<User> optional = this.userRepository.findById(id);
 		if(optional.isPresent()){

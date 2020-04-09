@@ -48,9 +48,9 @@ public class Route {
 		return id;
 	}
 
-	public User getUser() {
+	/*public User getUser() {
 		return user;
-	}
+	}*/
 
 	public String getDescription() {
 		return description;
