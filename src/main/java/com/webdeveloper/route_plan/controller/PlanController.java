@@ -34,7 +34,7 @@ public class PlanController {
 		return this.planRepository.save(plan);
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, value="")
+	@RequestMapping(method=RequestMethod.PUT, value="/{id}")
 	Plan update(@RequestBody Plan plan, @PathVariable("id") int id){
 		Optional<Plan> optional = this.planRepository.findById(id);
 		if(optional.isPresent()){

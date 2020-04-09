@@ -45,7 +45,7 @@ public class RouteController {
 		return this.routeRepository.save(route);
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, value="")
+	@RequestMapping(method=RequestMethod.PUT, value="/{id}")
 	Route update(@RequestBody Route route, @PathVariable("id") int id){
 		Optional<Route> optional = this.routeRepository.findById(id);
 		if(optional.isPresent()){
