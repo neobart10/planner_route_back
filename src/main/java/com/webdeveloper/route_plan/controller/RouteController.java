@@ -1,8 +1,12 @@
 package com.webdeveloper.route_plan.controller;
 
+import java.io.IOException;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,14 +34,28 @@ public class RouteController {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/{id}")
-	Route getById(@PathVariable("id") int id){
-		return this.routeRepository.findById(id).get();
+	Route getById(@PathVariable("id") int id, HttpServletResponse response) throws IOException{
+		Optional<Route> route = this.routeRepository.findById(id); 
+		
+		if (route.isPresent()) {
+			return route.get();	
+		} else {
+			response.sendError(HttpStatus.NO_CONTENT.value(), "User not exist");
+			return null;
+		}
 	}
 	
-	@RequestMapping(method=RequestMethod.GET, value="/user/{idUser}")
-	Iterable<Route> getByUser(@PathVariable("idUser") int idUser){
-		User user = this.userRepository.findById(idUser).get();
-		return this.routeRepository.findByUser(user);
+	@RequestMapping(method=RequestMethod.GET, value="/byUser/{idUser}")
+	Iterable<Route> getByUser(@PathVariable("idUser") int idUser, HttpServletResponse response) throws IOException{
+		Optional<User> user = this.userRepository.findById(idUser);
+		if(user.isPresent()) {
+			return this.routeRepository.findByUser(user.get());	
+		}else {
+			response.sendError(HttpStatus.NO_CONTENT.value(), "User not exist");
+			return null;
+		}
+		
+		
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="")
@@ -65,9 +83,13 @@ public class RouteController {
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/{id}")
-	void delete(@PathVariable("id") int id){
+	boolean delete(@PathVariable("id") int id){
 		Optional<Route> optional = this.routeRepository.findById(id);
-		if(optional.isPresent())
+		if(optional.isPresent()) {
 		  this.routeRepository.deleteById(id);
+		  return true;
+		} else {
+			return false;
+		}
 	}
 }
