@@ -46,7 +46,7 @@ public class UserController {
 			return this.userRepository.save(user);	
 		}else {
 			response.sendError(HttpStatus.MULTI_STATUS.value(), "Username already exist");
-			return userOptional.get();
+			return null;
 		}
 	}
 	
@@ -71,11 +71,10 @@ public class UserController {
 	@RequestMapping(method=RequestMethod.POST, value="/login")
 	User login(@RequestBody User user, HttpServletResponse response) throws IOException{
 		Optional<User> userOptional =  this.userRepository.findByUsername(user.getUsername());
-		if(userOptional.isPresent() && userOptional.get().getPass().equals(user.getPass())) {
-			response.setStatus(HttpStatus.OK.value());
+		if(userOptional.isPresent() && userOptional.get().getPass().equals(user.getPass())) {			
 			return userOptional.get();	
 		}else {
-			response.sendError(HttpStatus.UNAUTHORIZED.value(), "Username not exist");
+			response.sendError(HttpStatus.NON_AUTHORITATIVE_INFORMATION.value(), "Username not exist");
 			return null;
 		}
 	}
