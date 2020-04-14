@@ -50,12 +50,12 @@ public class PlanController {
 		Optional<Plan> optional = this.planRepository.findById(id);
 		if (optional.isPresent()) {
 			Plan planUpdate = optional.get();
-			planUpdate.setStartLat(plan.getStartLat());
-			planUpdate.setStartLng(plan.getStartLng());
+			planUpdate.setDescription(plan.getDescription());
+			planUpdate.setLng(plan.getLng());
+			planUpdate.setLat(plan.getLat());
+			planUpdate.setKm(plan.getKm());
 			planUpdate.setState(plan.getState());
 			planUpdate.setStop(plan.getStop());
-			planUpdate.setTargetLat(plan.getTargetLat());
-			planUpdate.setTargetLng(plan.getTargetLng());
 			return this.planRepository.save(planUpdate);
 		} else {
 			response.sendError(HttpStatus.NO_CONTENT.value(), "Plan not exist");

@@ -20,13 +20,13 @@ public class Plan {
     @JoinColumn(name = "id_route", referencedColumnName = "id")
 	private Route route;
 	
-	private Double startLat;
+	private  String description;
 	
-	private Double startLng;
+	private Double lng;
 	
-	private Double targetLat;
+	private Double lat;
 	
-	private Double targetLng;
+	private Double km;
 	
 	private Integer stop;
 	
@@ -38,30 +38,6 @@ public class Plan {
 	}
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	public Double getStartLat() {
-		return startLat;
-	}
-	public void setStartLat(Double startLat) {
-		this.startLat = startLat;
-	}
-	public Double getStartLng() {
-		return startLng;
-	}
-	public void setStartLng(Double startLng) {
-		this.startLng = startLng;
-	}
-	public Double getTargetLat() {
-		return targetLat;
-	}
-	public void setTargetLat(Double targetLat) {
-		this.targetLat = targetLat;
-	}
-	public Double getTargetLng() {
-		return targetLng;
-	}
-	public void setTargetLng(Double targetLng) {
-		this.targetLng = targetLng;
 	}
 	public Integer getStop() {
 		return stop;
@@ -81,4 +57,29 @@ public class Plan {
 	public void setRoute(Route route) {
 		this.route = route;
 	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public Double getLng() {
+		return lng;
+	}
+	public void setLng(Double lng) {
+		this.lng = lng;
+	}
+	public Double getLat() {
+		return lat;
+	}
+	public void setLat(Double lat) {
+		this.lat = lat;
+	}
+	public Double getKm() {
+		return km;
+	}
+	public void setKm(Double km) {
+		this.km = km;
+	}
+	
 }
