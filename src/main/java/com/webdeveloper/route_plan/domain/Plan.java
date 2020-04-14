@@ -28,6 +28,8 @@ public class Plan {
 	
 	private Double km;
 	
+	private Double time;
+	
 	private Integer stop;
 	
 	private Integer state;
@@ -80,6 +82,12 @@ public class Plan {
 	}
 	public void setKm(Double km) {
 		this.km = km;
+	}
+	public Double getTime() {
+		return time;
+	}
+	public void setTime(Double time) {
+		this.time = time;
 	}
 	
 }

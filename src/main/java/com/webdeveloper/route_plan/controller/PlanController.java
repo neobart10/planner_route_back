@@ -54,6 +54,7 @@ public class PlanController {
 			planUpdate.setLng(plan.getLng());
 			planUpdate.setLat(plan.getLat());
 			planUpdate.setKm(plan.getKm());
+			planUpdate.setTime(plan.getTime());
 			planUpdate.setState(plan.getState());
 			planUpdate.setStop(plan.getStop());
 			return this.planRepository.save(planUpdate);
